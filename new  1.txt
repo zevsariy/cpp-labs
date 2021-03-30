@@ -1,0 +1,52 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+vector <vector <string>> s;
+string temp;
+string start;
+bool flag = false;
+int k, j = 0, p = 0;
+int main()
+{
+	cin >> k;
+	cin >> start;
+	temp = start[0];
+	s[j].push_back(temp);
+	for (int i = 1; i < start.length(); i++)
+	{
+		while (j < k)
+		{
+			if (start[i] == start[i - 1])
+			{
+				temp = start[i];
+				s[j].push_back(temp);
+				p += 1;
+			}
+			else
+			{
+				p = 0;
+				j += 1;
+				temp = start[i];
+				s[j].push_back(temp);
+			}
+		}
+
+		if (flag == true)
+		{
+			temp = start[i];
+			s[j].push_back(temp);
+			p += 1;
+		}
+	}
+	
+	for (int p = 0; p < k; p++)
+	{
+		for (unsigned int c = 0; c < s[p].size(); c++)
+		{
+			cout << s[p][c];
+		}
+		cout << " ";
+	}
+	return 0;
+}

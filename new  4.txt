@@ -1,0 +1,44 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main()
+{
+	int m;
+	int temp1, temp2, temp;
+	vector <int> l;
+	vector <int> p;
+	int n;
+	vector <int> cars;
+	cin >> m;
+	for (int i = 0; i < m; i++)
+	{
+		cin >> temp1;
+		cin >> temp2;
+		l.push_back(temp1);
+		p.push_back(temp2);
+		cars.push_back(0);
+	}
+	cin >> n;
+	for (int c = 0; c < n; c++)
+	{
+		cin >> temp;
+		cars[temp-1] += 1;
+	}
+	for (int r = 0; r < cars.size(); r++)
+	{
+		if (cars[r] < l[r])
+		{
+			cout << "Green" << endl;
+		}
+		else if (cars[r] > p[r])
+		{
+			cout << "Red" << endl;
+		}
+		else
+		{
+			cout << "Orange" << endl;
+		}
+	}
+}

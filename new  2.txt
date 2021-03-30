@@ -1,0 +1,57 @@
+#include <string>
+#include <iostream>
+#include <cstdio>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    int k, t, i, j, v;
+    string q;
+    vector <vector<char» s;
+    vector <char> r;
+    cin » k;
+    cin » q;
+    r.push_back(q[0]);
+    s.push_back(r);
+    r.clear();
+    v = 0;
+    for (i = 1; i < q.length(); i++)
+    {
+        t = 0;
+        for (j = 0; j < s.size(); j++)
+            {
+                if (q[i] == s[j][0])
+                t++;
+            }
+        if (t == 0)
+            {
+                v++;
+                r.push_back(q[i]);
+                s.push_back(r);
+                r.clear();
+            }
+        else
+            s[v].push_back(q[i]);
+    }
+    if (k>s.size())
+    cout « "NO";
+    else
+    {
+        cout « "YES"«endl;
+        for (j = 0; j < k-1; j++)
+        {
+            for (i = 0; i < s[j].size(); i++)
+            cout « s[j][i];
+            cout « endl;
+        }
+        for (j = k - 1; j < s.size(); j++)
+        {
+            for (i = 0; i < s[j].size(); i++)
+                cout « s[j][i];
+        }
+
+    }
+    return 0;
+}
